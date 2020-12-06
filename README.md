@@ -6,3 +6,4 @@ These are my Python 3 (maybe others languages as well) solutions to 2020 [Advent
 - [Dec 2](https://adventofcode.com/2020/day/2)
 - [Dec 3](https://adventofcode.com/2020/day/3)
 - [Dec 4](https://adventofcode.com/2020/day/4)
+- [Dec 5](https://adventofcode.com/2020/day/5)
