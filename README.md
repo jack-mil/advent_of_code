@@ -12,3 +12,6 @@ These solutions use type annotation, as I wanted to try using that feature in Py
 - [Dec 4](https://adventofcode.com/2020/day/4)
 - [Dec 5](https://adventofcode.com/2020/day/5)
 - [Dec 6](https://adventofcode.com/2020/day/6)
+- [Dec 7](https://adventofcode.com/2020/day/7)
+- [Dec 8](https://adventofcode.com/2020/day/8)
+- [Dec 9](https://adventofcode.com/2020/day/9)
