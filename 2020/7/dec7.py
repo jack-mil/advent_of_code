@@ -16,11 +16,11 @@ holds_bag = dict()
 
 
 def process_input(rules: List[str]):
-    line_split = re.compile(r'(\w+ \w+) bags? contain (.+)')
-    contain_split = re.compile(r'(\d+)\s(\w+\s\w+)\sbags?[,.]?\s?')
+    line_split = re.compile(r"(\w+ \w+) bags? contain (.+)")
+    contain_split = re.compile(r"(\d+)\s(\w+\s\w+)\sbags?[,.]?\s?")
     for rule in rules:
         out_bag, contains = re.match(line_split, rule).groups()
-        if contains == 'no other bags.':
+        if contains == "no other bags.":
             inside_bags = None
         else:
             inside_bags = re.split(contain_split, contains)
@@ -28,8 +28,7 @@ def process_input(rules: List[str]):
             inside_bags = tuple(filter(None, inside_bags))
 
             # Make set() of (count, color) tuples
-            inside_bags = {c for n, c in zip(
-                inside_bags[::2], inside_bags[1::2])}
+            inside_bags = {c for n, c in zip(inside_bags[::2], inside_bags[1::2])}
 
             for bag in inside_bags:
                 if bag in holds_bag.keys():
@@ -43,7 +42,6 @@ def process_input(rules: List[str]):
 
 
 def part1(goal: str):
-
     def path_search(goal):
         if goal not in holds_bag.keys():
             return set()

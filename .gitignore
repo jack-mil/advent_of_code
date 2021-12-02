@@ -1,4 +1,5 @@
-
+# cookie authentication file for advent of code
+session.json
 # Created by https://www.toptal.com/developers/gitignore/api/python,vscode
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,vscode
 

@@ -5,7 +5,7 @@ from typing import Iterator, Optional, List
 def get_id(seat: str) -> int:
     # This puzzle can be solved by interpreting the string code
     # as a binary number. The seat id is just the string with (F=0, B=1, L=0, R=1)
-    chars = {'L': '0', 'F': '0', 'R': '1', 'B': '1'}
+    chars = {"L": "0", "F": "0", "R": "1", "B": "1"}
     for a, b in chars.items():
         seat = seat.replace(a, b)
     # Convert binary string to integer (base 2)
@@ -27,7 +27,7 @@ def part2(ids: List[int]) -> Optional[int]:
     # Find the sum of all theoretical ids in range [min, max]
     # The missing seat will be the difference
     # between theoretical sum and actual sum
-    return sum(range(min(ids), max(ids)+1)) - sum(ids)
+    return sum(range(min(ids), max(ids) + 1)) - sum(ids)
 
 
 if __name__ == "__main__":

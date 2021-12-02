@@ -1,16 +1,15 @@
-
 import os
 
-'''
-Read some numarical input from a file.
+"""
+Read some numerical input from a file.
 Determine the product of the 2 (or 3) entries that *sum* to 2020
-'''
+"""
 
 
 def part1() -> int:
     for n in nums:
         if 2020 - n in nums:
-            return n * (2020-n)
+            return n * (2020 - n)
     return 0
 
 

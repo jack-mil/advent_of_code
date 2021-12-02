@@ -3,12 +3,12 @@ from typing import List
 
 
 def part1(grid: List[str]) -> int:
-    '''Return the number of trees in a right 3 down 1 slope'''
+    """Return the number of trees in a right 3 down 1 slope"""
     return calculate_slope(grid, 3, 1)
 
 
 def part2(grid: List[str]) -> int:
-    '''Calculate the trees along many slopes'''
+    """Calculate the trees along many slopes"""
     slopes = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
     product = 1
     for slope in slopes:
@@ -19,13 +19,13 @@ def part2(grid: List[str]) -> int:
 
 
 def calculate_slope(grid: List[str], x: int, y: int) -> int:
-    '''General solution for any x/y slope'''
+    """General solution for any x/y slope"""
     count = 0
     height = len(grid)  # number of rows
     width = len(grid[0])  # width of rows
     column = x  # starting column
     for i in range(1, height, y):
-        count += (grid[i][column % width] == '#')
+        count += grid[i][column % width] == "#"
         column += x
 
     return count

@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     with open(os.path.join(me, "input.txt")) as file:
         # Split input on double newlines into groups
-        answers = file.read().split('\n\n')
+        answers = file.read().split("\n\n")
 
     print("Part 1:", part1(answers))
     print("Part 2:", part2(answers))

@@ -17,18 +17,18 @@ def part2(passwords: Set[PasswordData]) -> int:
     count = 0
     for elem in passwords:
         i, j, char, paswd = elem
-        if (paswd[i-1] == char) ^ (paswd[j-1] == char):
+        if (paswd[i - 1] == char) ^ (paswd[j - 1] == char):
             count += 1
     return count
 
 
 def process_lines(lines) -> Set[PasswordData]:
     # Format: 1-3 b: cdefg
-    # Convert to PasswordData format (min, max, char, password) 
+    # Convert to PasswordData format (min, max, char, password)
     data = set()
     for line in lines:
-        q, char, paswd = line.replace(':', '').split()
-        min, max = map(int, q.split('-'))
+        q, char, paswd = line.replace(":", "").split()
+        min, max = map(int, q.split("-"))
         data.add((min, max, char, paswd))
 
     return data

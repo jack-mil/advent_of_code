@@ -9,10 +9,10 @@ def process_data(file) -> List[Dict]:
     # Passports are split up on different lines
     for line in file:
         for field in line.split():
-            name, value = field.split(':')
+            name, value = field.split(":")
             current_passport[name] = value
         # Blank line signals a new passport entry
-        if line == '\n':
+        if line == "\n":
             passports.append(current_passport)
             current_passport = dict()
     passports.append(current_passport)
@@ -20,35 +20,35 @@ def process_data(file) -> List[Dict]:
 
 
 def valid_fields(id: Dict) -> bool:
-    '''Valid passports must have ALL of the following fields'''
+    """Valid passports must have ALL of the following fields"""
     required_fields = {"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"}
     return required_fields.issubset(id.keys())
 
 
 def height_check(height: str) -> bool:
-    '''Height must be in inches or cm, within a range depending on units'''
+    """Height must be in inches or cm, within a range depending on units"""
     if m := re.match(r"^(\d+)(in|cm)$", height):
         h = int(m.groups()[0])
         if m.groups()[1] == "in":
-            return (59 <= h <= 76)
+            return 59 <= h <= 76
         else:
-            return (150 <= h <= 193)
+            return 150 <= h <= 193
     return False
 
 
 def hair_check(color: str) -> bool:
-    '''Hair must be a valid 6-digit hex color code (#fff000)'''
+    """Hair must be a valid 6-digit hex color code (#fff000)"""
     return bool(re.match(r"^#([a-f0-9]{6})$", color))
 
 
 def eye_check(color: str) -> bool:
-    '''Eye color must be one of the following'''
+    """Eye color must be one of the following"""
     colors = {"amb", "blu", "brn", "gry", "grn", "hzl", "oth"}
     return color in colors
 
 
 def pid_check(pid: str) -> bool:
-    '''Passport number must be 9 digits (including leading 0s)'''
+    """Passport number must be 9 digits (including leading 0s)"""
     return (len(pid) == 9) and (pid.isdecimal())
 
 
@@ -65,7 +65,7 @@ def valid_passport(id: Dict) -> bool:
         height_check(id["hgt"]),  # Validate height
         hair_check(id["hcl"]),  # Validate hair color (None if false)
         eye_check(id["ecl"]),  # Validate eye color
-        pid_check(id["pid"])  # Validate passport number
+        pid_check(id["pid"]),  # Validate passport number
     ]
     return all(checks)
 

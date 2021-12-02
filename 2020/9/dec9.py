@@ -9,7 +9,7 @@ def part1(numbers: List[int]) -> Union[int, None]:
         n = numbers[i]  # Get first code after preamble
 
         # The previous PREAMBLE numbers
-        backwards = set(numbers[i-PREAMBLE:i])
+        backwards = set(numbers[i - PREAMBLE : i])
 
         # Check last 25 numbers for a pair that sums to n
         valid = False

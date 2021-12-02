@@ -3,7 +3,7 @@ from typing import List, Tuple, Union
 
 
 def machine(instructions: List[str]) -> Tuple[int, bool]:
-    """ 
+    """
     Run a set of instructions. Returns a tuple of the form (count, no_loops)
     If a loop is detected, will return the value of the accumulator just before
     the first repeated instruction. Otherwise returns (count, True)
@@ -36,7 +36,7 @@ def part1(instructions: List[str]):
 def part2(instructions: List[str]) -> Union[int, None]:
     """
     Brute force approach to part 2. Swap every nop/jmp command one-at-a-time
-    and check for loops. Return the accumulator of the first modified 
+    and check for loops. Return the accumulator of the first modified
     instruction set that does not loop
     """
     for i, line in enumerate(instructions):
