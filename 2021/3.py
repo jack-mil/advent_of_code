@@ -1,12 +1,61 @@
 from pathlib import Path
 
 
-def part1(puzzle):
-    pass
+def part1(puzzle: list[str]):
+    # transpose the cols
+    cols = zip(*puzzle)
+    gamma = 0
+    for i, col in enumerate(cols):
+        # get number of ones and zeros
+        ones = col.count("1")
+        zeros = len(col) - ones
+
+        # if 1s most common, increment gamma by a power of 2
+        # dependent on current string index
+        if ones > zeros:
+            gamma += 1 << (len(puzzle[0]) - i - 1)
+
+    mask = (1 << gamma.bit_length()) - 1
+    return gamma * (gamma ^ mask)
 
 
-def part2(puzzle):
-    pass
+def part2(puzzle: list[str]):
+    def filter_oxy(iter: list[str], index: int):
+        # count 1s and 0s
+        a = [x[index] for x in iter]
+        ones = a.count("1")
+        zeros = len(a) - ones
+
+        if ones >= zeros:
+            iter = [x for x in iter if x[index] == "1"]
+        else:
+            iter = [x for x in iter if x[index] == "0"]
+
+        if len(iter) == 1:
+            return iter
+
+        return filter_oxy(iter, index + 1)
+
+    def filter_co2(iter: list[str], index: int):
+        # count 1s and 0s
+        a = [x[index] for x in iter]
+        ones = a.count("1")
+        zeros = len(a) - ones
+
+        if zeros <= ones:
+            iter = [x for x in iter if x[index] == "0"]
+        else:
+            iter = [x for x in iter if x[index] == "1"]
+
+        if len(iter) == 1:
+            return iter
+
+        return filter_co2(iter, index + 1)
+
+    oxy = filter_oxy(puzzle, 0)[0]
+    co2 = filter_co2(puzzle, 0)[0]
+
+    return int(oxy, base=2) * int(co2, base=2)
 
 
 if __name__ == "__main__":
@@ -32,5 +81,5 @@ if __name__ == "__main__":
 
     print("Part 2:", part2(puzzle))
 
-    # $> Part 1: 2073315
-    # $> Part 2: 1840311528
+    # $> Part 1: 3320834
+    # $> Part 2: 4481199

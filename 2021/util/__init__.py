@@ -47,7 +47,6 @@ class Aoc:
                 print(r.status_code, r.text)
 
 
-
 if __name__ == "__main__":
     import argparse
 
