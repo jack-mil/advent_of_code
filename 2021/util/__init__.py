@@ -1,4 +1,4 @@
-from os import PathLike
+import time
 import requests
 import json
 
@@ -23,6 +23,7 @@ class Aoc:
         if self._pt2 is not None:
             self._pt2()
 
+    @staticmethod
     def yoink_input(*days: int, year=2021, auth_file="session.json", file: str = None):
         """
         Download input for specified days from advent of code api.
@@ -46,6 +47,22 @@ class Aoc:
             else:
                 print(r.status_code, r.text)
 
+
+def timeit(print_args=False):
+    """Execute a function and print it's running time"""
+    def decorator(func):
+        def timed(*args,**kwargs):
+            ts = time.time()
+            result = func(*args, **kwargs)
+            te = time.time()
+
+            if print_args:
+                print(f"{func.__name__!s}: args:[ {args!s},{kwargs!s} ] took {te-ts:e} sec")
+            else:
+                print(f"{func.__name__!s}: took {te-ts} sec")
+            return result
+        return timed
+    return decorator
 
 if __name__ == "__main__":
     import argparse
