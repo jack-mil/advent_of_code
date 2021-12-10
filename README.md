@@ -3,7 +3,7 @@
 ## 2021 ##
 <div align="center">
 
-![](https://img.shields.io/badge/Day%20📅-2-blue) ![](https://img.shields.io/badge/Completed%20✔-2-darkgreen) ![](https://img.shields.io/badge/Stars%20⭐-4-yellow)
+![](https://img.shields.io/badge/Day%20📅-10-blue) ![](https://img.shields.io/badge/Completed%20✔-9-darkgreen) ![](https://img.shields.io/badge/Stars%20⭐-18-yellow)
 
 </div>
 
