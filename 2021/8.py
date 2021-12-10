@@ -40,7 +40,7 @@ def part2(lines):
             for seq in line:
                 seq = "".join(sorted(seq))
                 conv = "".join(sorted(str.translate(seq, str.maketrans(mapping))))
-                # if this permutation doesnt work fo this line, immediatly move onto next one
+                # if this permutation doesn't work for this line, immediately move onto next one
                 try:
                     lookup[seq] = decoder[conv]
                 except KeyError:

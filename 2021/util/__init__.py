@@ -1,3 +1,9 @@
+"""
+Small utility package for AoC challenges
+
+util.timeit(): function decorator to print execution time
+util.Aoc.yoink_input(): download challenge input for a particular day(s)
+"""
 import time
 import requests
 import json
