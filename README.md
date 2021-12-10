@@ -1,10 +1,17 @@
-# 2020 Advent of Code!
+# ❄ Advent of Code ❄!
+
+## 2021 ##
+<div align="center">
+
+![](https://img.shields.io/badge/Day%20📅-2-blue) ![](https://img.shields.io/badge/Completed%20✔-2-darkgreen) ![](https://img.shields.io/badge/Stars%20⭐-4-yellow)
+
+</div>
+
+
 
 These are my Python 3 (maybe others languages as well) solutions to [Advent of Code](https://adventofcode.com/)
 
 They're not the most optimized or "correct" solutions I am sure, but I had fun.
-
-These solutions use type annotation, as I wanted to try using that feature in Python for the first time.
 
 ## 2020 ##
 Python 3.8
